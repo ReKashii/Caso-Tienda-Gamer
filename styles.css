@@ -11,6 +11,54 @@
   --glass: rgba(255,255,255,0.03);
 }
 
+/* CARRUSEL ESTILO SP DIGITAL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-track img {
+  min-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-controls button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 6px 12px;
+  transition: background 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: rgba(0,0,0,0.8);
+}
+
 /* ===========================
    RESET Y BASICOS
 =========================== */
@@ -323,43 +371,118 @@ body {
 }
 
 /* ===========================
-   MODAL
+   MODAL ANIMADO
 =========================== */
 .modal {
   position: fixed;
   inset: 0;
-  display: none;
-  align-items: center;
+  background: rgba(0,0,0,0.6);
+  display: flex;
   justify-content: center;
-  background: rgba(0,0,0,0.7);
-  z-index: 100;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
 }
 
-.modal.show {
-  display: flex;
+.modal.open {
+  visibility: visible;
+}
+
+.modal.visible {
+  opacity: 1;
 }
 
 .modal-card {
-  width: 900px;
-  max-width: 96%;
   background: #070708;
-  padding: 18px;
   border-radius: 12px;
+  max-width: 900px;
+  width: 96%;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px;
   position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-card {
+  transform: scale(1);
 }
 
 .modal-close {
   position: absolute;
-  right: 12px;
-  top: 8px;
-  background: transparent;
+  top: 10px;
+  right: 10px;
+  background: none;
   border: none;
+  font-size: 1.5rem;
   color: var(--muted);
-  font-size: 22px;
+  cursor: pointer;
 }
+.cart-slide {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+/*
+SLIDE DEL CARRO
+*/
+
+.cart-slide.show {
+  right: 0;
+}
+
+.cart-header {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-footer {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 /* ===========================
    MAPA

@@ -7,7 +7,7 @@ const PRODUCTS = [
     cat: 'Juegos de Mesa',
     title: 'Catan',
     price: 29990,
-    img: 'https://images.unsplash.com/photo-1545235617-9465b6f8c9d4?auto=format&fit=crop&w=800&q=60',
+    img: 'https://steamcommunity.com/sharedfiles/filedetails/?l=latam&id=3494302063&searchtext=',
     desc: 'Juego de estrategia para 3-4 jugadores.'
   },
   {
@@ -275,6 +275,69 @@ function changeQty(id, qty) {
   it.qty = Math.max(1, parseInt(qty));
   updateCartUI();
 }
+// ===========================
+// SLIDE LATERAL CARRITO
+// ===========================
+const cartSlide = el('cart-slide');
+const cartList = el('cart-list');
+const cartTotalSlide = el('cart-total-slide');
+const btnCartHeader = el('btn-cart');
+const btnCloseSlide = el('cart-close-slide');
+
+// Abrir slide al hacer click en carrito
+btnCartHeader.addEventListener('click', () => {
+  renderCartSlide();
+  cartSlide.classList.add('show');
+  cartSlide.setAttribute('aria-hidden', 'false');
+});
+
+// Cerrar slide
+btnCloseSlide.addEventListener('click', () => {
+  cartSlide.classList.remove('show');
+  cartSlide.setAttribute('aria-hidden', 'true');
+});
+
+// Renderizar productos del carrito
+function renderCartSlide() {
+  cartList.innerHTML = '';
+  if(state.cart.length === 0) {
+    cartList.innerHTML = `<div class="muted">Tu carrito está vacío</div>`;
+    cartTotalSlide.textContent = money(0);
+    return;
+  }
+
+  state.cart.forEach(it => {
+    const p = PRODUCTS.find(x => x.id === it.id);
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${p.img}" alt="${p.title}">
+      <div class="cart-item-info">
+        <strong>${p.title}</strong>
+        <div>Cantidad: 
+          <input type="number" min="1" value="${it.qty}" style="width:50px" onchange="changeQtySlide('${it.id}', this.value)">
+        </div>
+        <div>Subtotal: ${money(p.price * it.qty)}</div>
+      </div>
+      <button class="btn" onclick="removeFromCartSlide('${it.id}')">Eliminar</button>
+    `;
+    cartList.appendChild(div);
+  });
+
+  const total = state.cart.reduce((s, i) => s + (PRODUCTS.find(x => x.id === i.id).price * i.qty), 0);
+  cartTotalSlide.textContent = money(total);
+}
+
+// Funciones para slide lateral
+function removeFromCartSlide(id) {
+  removeFromCart(id); // reutiliza tu función existente
+  renderCartSlide();
+}
+
+function changeQtySlide(id, qty) {
+  changeQty(id, qty); // reutiliza tu función existente
+  renderCartSlide();
+}
 
 // ===========================
 // PERFIL
@@ -364,3 +427,71 @@ el('review-form').addEventListener('submit', e => {
   el('review-text').value = '';
   alert('Gracias por tu reseña');
 });
+
+// --- CARRUSEL ---
+const track = document.querySelector('.carousel-track');
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+let currentIndex = 0;
+
+// Lista de imágenes del carrusel (pueden ser GIFs también)
+const carouselImages = [
+  'https://tenor.com/sRz2Hjr6Aoj.gif',
+  'https://images.unsplash.com/photo-1618354691373-d49e3b8d3e58?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1605902711622-cfb43c4437f3?auto=format&fit=crop&w=1200&q=80'
+];
+
+// Renderizamos las imágenes en el carrusel
+function renderCarouselImages() {
+  track.innerHTML = '';
+  carouselImages.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Slide ${i+1}`;
+    if(i === 0) img.classList.add('active');
+    track.appendChild(img);
+  });
+}
+
+renderCarouselImages();
+const images = Array.from(track.children);
+
+// Actualiza la posición del carrusel
+function updateCarousel() {
+  const width = images[0].clientWidth;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+// Botones de navegación
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+  resetAutoplay();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateCarousel();
+  resetAutoplay();
+});
+
+// Ajusta el carrusel al cambiar tamaño de pantalla
+window.addEventListener('resize', updateCarousel);
+
+// Autoplay automático
+let autoplay = setInterval(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+}, 5000);
+
+// Reinicia autoplay al usar botones
+function resetAutoplay() {
+  clearInterval(autoplay);
+  autoplay = setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  }, 5000);
+}
+
+// Inicializamos posición
+updateCarousel();

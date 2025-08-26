@@ -29,6 +29,18 @@
       <button class="btn primary" id="btn-cart">Carrito (<span id="cart-count">0</span>)</button>
     </div>
   </header>
+<!-- CARRUSEL -->
+<div class="carousel">
+  <div class="carousel-track">
+    <img src="https://tenor.com/gmQzOWJTeBc.gif" alt="Setup Gamer 1" class="active">
+    <img src="https://images.unsplash.com/photo-1618354691373-d49e3b8d3e58?auto=format&fit=crop&w=1200&q=80" alt="Setup Gamer 2">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437f3?auto=format&fit=crop&w=1200&q=80" alt="Setup Gamer 3">
+  </div>
+  <div class="carousel-controls">
+    <button id="prev">❮</button>
+    <button id="next">❯</button>
+  </div>
+</div>
 
   <!-- HERO -->
   <main class="container">
@@ -94,27 +106,6 @@
       </aside>
     </section>
 
-    <!-- RESEÑAS -->
-    <section id="reseñas" class="section">
-      <h2>Reseñas de clientes</h2>
-      <div id="reviews-list" class="reviews-list"></div>
-      <form id="review-form" class="review-form">
-        <label>Puntaje:
-          <select id="review-score">
-            <option value="5">5</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-          </select>
-        </label>
-        <textarea id="review-text" placeholder="Comparte tu opinión"></textarea>
-        <div style="text-align:right">
-          <button class="btn primary" type="submit">Enviar reseña</button>
-        </div>
-      </form>
-    </section>
-
     <!-- PERFIL Y REGISTRO -->
     <section id="perfil" class="section">
       <h2>Mi Cuenta</h2>
@@ -147,6 +138,28 @@
     </section>
   </main>
 
+    <!-- RESEÑAS -->
+    <section id="reseñas" class="section">
+      <h2>Reseñas de clientes</h2>
+      <div id="reviews-list" class="reviews-list"></div>
+      <form id="review-form" class="review-form">
+        <label>Puntaje:
+          <select id="review-score">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </label>
+        <textarea id="review-text" placeholder="Comparte tu opinión"></textarea>
+        <div style="text-align:right">
+          <button class="btn primary" type="submit">Enviar reseña</button>
+        </div>
+      </form>
+    </section>
+
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div>Level-Up Gamer • Soporte: soporte@levelup.cl</div>
@@ -161,6 +174,21 @@
       <div class="modal-right" id="modal-right"></div>
     </div>
   </div>
+
+  <!-- SLIDE LATERAL CARRITO -->
+<div id="cart-slide" class="cart-slide" aria-hidden="true">
+  <div class="cart-header">
+    <h3>Tu Carrito</h3>
+    <button id="cart-close-slide">×</button>
+  </div>
+  <div id="cart-list" class="cart-list">
+    <div class="muted">Tu carrito está vacío</div>
+  </div>
+  <div class="cart-footer">
+    <div>Total: <strong id="cart-total-slide">$0</strong></div>
+    <button class="btn primary" id="checkout-slide">Pagar</button>
+  </div>
+</div>
 
   <script src="app.js"></script>
 </body>
