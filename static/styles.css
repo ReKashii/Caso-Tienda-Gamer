@@ -1,0 +1,545 @@
+/* ===========================
+   VARIABLES GLOBALES
+=========================== */
+:root {
+  --bg: #0a0a0b;
+  --accent-blue: #1E90FF;
+  --accent-green: #39FF14;
+  --text: #FFFFFF;
+  --muted: #D3D3D3;
+  --card: #111111;
+  --glass: rgba(255,255,255,0.03);
+}
+
+/* CARRUSEL ESTILO SP DIGITAL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-track img {
+  min-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-controls button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 6px 12px;
+  transition: background 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* ===========================
+   RESET Y BASICOS
+=========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-family: Orbitron;
+  color: #000;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: Orbitron;
+  font-size: 16px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--glass);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+  color: #000;
+  border: none;
+  font-weight: 700;
+}
+
+/* ===========================
+   CONTENEDORES
+=========================== */
+.container {
+  max-width: 1150px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  display: flex;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(30,144,255,0.04),
+    rgba(57,255,20,0.02)
+  );
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.eyebrow {
+  color: var(--accent-green);
+  font-weight: 700;
+  font-family: Orbitron;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.search-row input,
+.search-row select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: var(--text);
+  flex: 1;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+  color: #000;
+  font-weight: 700;
+}
+
+.points-card {
+  margin-top: 12px;
+  background: rgba(255,255,255,0.02);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ===========================
+   SECCIONES
+=========================== */
+.section {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ===========================
+   GRID DE PRODUCTOS
+=========================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: #0b0b0c;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #111;
+}
+
+.card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+}
+
+/* ===========================
+   LAYOUT DOS COLUMNAS
+=========================== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
+.sidebar {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ===========================
+   CARRITO
+=========================== */
+.cart-items {
+  max-height: 220px;
+  overflow: auto;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cart-row img {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* ===========================
+   RESEÑAS
+=========================== */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.review-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  color: var(--text);
+}
+
+/* ===========================
+   PERFIL
+=========================== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 14px;
+}
+
+.profile-card,
+.register-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+}
+
+/* ===========================
+   MODAL ANIMADO
+=========================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.modal.open {
+  visibility: visible;
+}
+
+.modal.visible {
+  opacity: 1;
+}
+
+.modal-card {
+  background: #070708;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 96%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+.cart-slide {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+/*
+SLIDE DEL CARRO
+*/
+
+.cart-slide.show {
+  right: 0;
+}
+
+.cart-header {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-footer {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ===========================
+   MAPA
+=========================== */
+.map-wrap iframe {
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  border: 0;
+}
+
+/* ===========================
+   UTILIDADES
+=========================== */
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 13px;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Mostrar modales cuando tengan .show (compatibiliza con tu sistema actual) */
+.modal.show { visibility: visible; opacity: 1; }
+.modal.show .modal-card { transform: scale(1); }
+
+/* Formulario de auth */
+.auth-form { display: grid; gap: 12px; }
+.auth-form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: var(--text);
+}
+.auth-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.auth-switch { color: var(--muted); font-size: 14px; }
+
+/* (Opcional) ocultar el registro embebido de la sección Perfil, ya usamos modal */
+.register-card { display: none; }

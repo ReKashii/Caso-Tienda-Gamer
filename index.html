@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Level-Up Gamer — Prototipo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">LU</div>
+      <div class="brand-text">
+        <span class="title">Level-Up Gamer</span>
+        <span class="subtitle">Envíos a todo Chile • Fundada hace 2 años</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#home" class="nav-link">Inicio</a>
+      <a href="#productos" class="nav-link">Productos</a>
+      <a href="#eventos" class="nav-link">Eventos</a>
+      <a href="#reseñas" class="nav-link">Reseñas</a>
+      <a href="#perfil" class="nav-link" id="nav-perfil">Perfil</a>
+    </nav>
+    <div class="actions">
+      <button class="btn" id="btn-login">Iniciar sesión</button>
+      <button class="btn primary" id="btn-cart">Carrito (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+<!-- CARRUSEL -->
+<div class="carousel">
+  <div class="carousel-track">
+    <img src="https://tenor.com/gmQzOWJTeBc.gif" alt="Setup Gamer 1" class="active">
+    <img src="https://images.unsplash.com/photo-1618354691373-d49e3b8d3e58?auto=format&fit=crop&w=1200&q=80" alt="Setup Gamer 2">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437f3?auto=format&fit=crop&w=1200&q=80" alt="Setup Gamer 3">
+  </div>
+  <div class="carousel-controls">
+    <button id="prev">❮</button>
+    <button id="next">❯</button>
+  </div>
+</div>
+
+  <!-- HERO -->
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">NUEVO</div>
+        <h1>Equipamiento para tu próxima partida</h1>
+        <p>Encuentra teclados, auriculares, sillas, consolas y accesorios. Diseño pensado para la comunidad gamer chilena.</p>
+        <div class="search-row">
+          <input id="search" placeholder="Buscar productos..." />
+          <select id="filter-category"><option value="">Todas las categorías</option></select>
+          <button id="searchBtn" class="btn primary">Buscar</button>
+        </div>
+        <div class="quick-actions">
+          <button class="btn" id="cta-shop">Ir a tienda</button>
+          <a class="chip" id="whatsapp" href="https://wa.me/56912345678?text=Hola%20soporte%20t%C3%A9cnico" target="_blank">Soporte WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="badge">Programa LevelUp</div>
+        <p class="muted">Gana puntos por comprar, referir y reseñar.</p>
+        <div class="points-card">
+          <div>Puntos: <strong id="points">0</strong></div>
+          <div>Nivel: <strong id="level">Novato</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="section">
+      <h2>Catálogo de Productos</h2>
+      <div class="filters">
+        <label>Ordenar:
+          <select id="sort">
+            <option value="default">Por defecto</option>
+            <option value="price-asc">Precio ↑</option>
+            <option value="price-desc">Precio ↓</option>
+            <option value="name-asc">Nombre A-Z</option>
+          </select>
+        </label>
+      </div>
+      <div id="product-grid" class="grid"></div>
+    </section>
+
+    <!-- EVENTOS + CARRITO -->
+    <section id="eventos" class="section two-col">
+      <div>
+        <h2>Mapa de Eventos</h2>
+        <p class="muted">Eventos gamer en Chile. Gana puntos LevelUp asistiendo.</p>
+        <div class="map-wrap">
+          <iframe title="Mapa de eventos" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d333439.98764928696!2d-70.6693!3d-33.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1690000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <h3>Carrito</h3>
+        <div id="cart-items" class="cart-items">
+          <div class="muted">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-total">Total: <strong id="cart-total">$0</strong></div>
+        <div class="cart-actions">
+          <button class="btn primary" id="checkout">Pagar</button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PERFIL Y REGISTRO -->
+    <section id="perfil" class="section">
+      <h2>Mi Cuenta</h2>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h3 id="user-name">Invitado</h3>
+          <div class="muted" id="user-email">-</div>
+          <div class="muted">Código de referido: <span id="user-code">-</span></div>
+          <div style="margin-top:12px">
+            <button class="btn" id="btn-logout">Cerrar sesión</button>
+          </div>
+        </div>
+        <div class="register-card">
+          <h3>Crear Cuenta</h3>
+          <form id="register-form">
+            <input id="reg-name" placeholder="Nombre completo" required />
+            <input id="reg-email" placeholder="Email" type="email" required />
+            <input id="reg-age" placeholder="Edad" type="number" required />
+            <input id="reg-ref" placeholder="Código de referido (opcional)" />
+            <div style="display:flex;gap:8px;justify-content:flex-end">
+              <button class="btn" type="button" id="cancel-register">Cancelar</button>
+              <button class="btn primary" type="submit">Registrarse</button>
+            </div>
+            <div class="muted small" style="margin-top:8px">
+              Usuarios con correo @duoc.cl obtienen 20% de descuento de por vida.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- RESEÑAS -->
+    <section id="reseñas" class="section">
+      <h2>Reseñas de clientes</h2>
+      <div id="reviews-list" class="reviews-list"></div>
+      <form id="review-form" class="review-form">
+        <label>Puntaje:
+          <select id="review-score">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </label>
+        <textarea id="review-text" placeholder="Comparte tu opinión"></textarea>
+        <div style="text-align:right">
+          <button class="btn primary" type="submit">Enviar reseña</button>
+        </div>
+      </form>
+    </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div>Level-Up Gamer • Soporte: soporte@levelup.cl</div>
+    <div class="socials"><a href="#">Instagram</a> · <a href="#">YouTube</a></div>
+  </footer>
+
+  <!-- MODAL PRODUCTO -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">×</button>
+      <div class="modal-left" id="modal-left"></div>
+      <div class="modal-right" id="modal-right"></div>
+    </div>
+  </div>
+
+  <!-- SLIDE LATERAL CARRITO -->
+<div id="cart-slide" class="cart-slide" aria-hidden="true">
+  <div class="cart-header">
+    <h3>Tu Carrito</h3>
+    <button id="cart-close-slide">×</button>
+  </div>
+  <div id="cart-list" class="cart-list">
+    <div class="muted">Tu carrito está vacío</div>
+  </div>
+  <div class="cart-footer">
+    <div>Total: <strong id="cart-total-slide">$0</strong></div>
+    <button class="btn primary" id="checkout-slide">Pagar</button>
+  </div>
+</div>
+<!-- === MODAL: LOGIN === -->
+<div id="login-modal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-label="Iniciar sesión">
+    <button class="modal-close" id="login-x" type="button">×</button>
+
+    <form id="login-form" class="auth-form" novalidate>
+      <h3>Iniciar sesión</h3>
+
+      <label>Email
+        <input id="login-email" type="email" placeholder="tu@correo.cl" required>
+      </label>
+
+      <label>Contraseña
+        <input id="login-pass" type="password" placeholder="••••••••" required>
+      </label>
+
+      <div class="auth-actions">
+        <button class="btn" type="button" id="login-cancel">Cancelar</button>
+        <button class="btn primary" type="submit" id="doLogin">Entrar</button>
+      </div>
+
+      <div class="auth-switch">
+        ¿No tienes cuenta? <a href="#" id="go-register">Regístrate aquí</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- === MODAL: REGISTRO === -->
+<div id="register-modal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-label="Crear cuenta">
+    <button class="modal-close" id="register-x" type="button">×</button>
+
+    <form id="register-form-modal" class="auth-form" novalidate>
+      <h3>Crear cuenta</h3>
+
+      <label>Nombre
+        <input id="regm-name" placeholder="Nombre y apellido" required>
+      </label>
+
+      <label>Email
+        <input id="regm-email" type="email" placeholder="tu@correo.cl" required>
+      </label>
+
+      <label>Edad
+        <input id="regm-age" type="number" min="1" placeholder="18" required>
+      </label>
+
+      <label>Contraseña
+        <input id="regm-pass" type="password" placeholder="••••••••" required>
+      </label>
+
+      <label>Código de referido (opcional)
+        <input id="regm-ref" placeholder="LUXXXX">
+      </label>
+
+      <div class="auth-actions">
+        <button class="btn" type="button" id="register-cancel">Cancelar</button>
+        <button class="btn primary" type="submit" id="doRegister">Registrarme</button>
+      </div>
+
+      <div class="auth-switch">
+        ¿Ya tienes cuenta? <a href="#" id="back-login">Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script src="./static/app.js"></script>
+</body>
+</html>
