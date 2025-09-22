@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Perfil — Level-Up Gamer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">LU</div>
+      <div class="brand-text">
+        <span class="title">Level-Up Gamer</span>
+        <span class="subtitle">Mi Perfil</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="./index.html#productos" class="nav-link">Volver a la tienda</a>
+      <button class="btn" id="btn-logout">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="section">
+    <h1>Mi Perfil</h1>
+
+    <div class="two-col">
+      <section class="profile-form">
+        <h2>Datos del usuario</h2>
+        <form id="profile-form" class="form-grid">
+          <label>Nombre
+            <input id="pf-name" required>
+          </label>
+          <label>Email
+            <input id="pf-email" type="email" required>
+          </label>
+          <label>Edad
+            <input id="pf-age" type="number" min="18" required>
+          </label>
+          <label>Preferencias (categorías)
+            <select id="pf-prefs" multiple>
+            </select>
+          </label>
+          <div class="row">
+            <button class="btn" type="reset">Revertir</button>
+            <button class="btn primary" type="submit">Guardar cambios</button>
+          </div>
+        </form>
+
+        <h2 style="margin-top:22px">Historial de pedidos</h2>
+        <div id="orders" class="orders"></div>
+      </section>
+
+      <aside>
+        <h2>Recomendado para ti</h2>
+        <div class="filters">
+          <select id="rec-category"><option value="">Todas</option></select>
+          <input id="rec-min" type="number" placeholder="Mín CLP" min="0" style="width:120px">
+          <input id="rec-max" type="number" placeholder="Máx CLP" min="0" style="width:120px">
+          <button id="rec-apply" class="btn">Filtrar</button>
+          <button id="rec-clear" class="btn">Limpiar</button>
+        </div>
+        <div id="rec-grid" class="grid"></div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="./static/app.js"></script>
+</body>
+</html>

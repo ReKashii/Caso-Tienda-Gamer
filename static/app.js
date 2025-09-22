@@ -1,177 +1,163 @@
 // ===========================
-// DATOS DE PRODUCTOS
+// DATA
 // ===========================
 const PRODUCTS = [
-  {
-    id: 'JM001',
-    cat: 'Juegos de Mesa',
-    title: 'Catan',
-    price: 29990,
-    img: 'https://steamcommunity.com/sharedfiles/filedetails/?l=latam&id=3494302063&searchtext=',
-    desc: 'Juego de estrategia para 3-4 jugadores.'
-  },
-  {
-    id: 'JM002',
-    cat: 'Juegos de Mesa',
-    title: 'Carcassonne',
-    price: 24990,
-    img: 'https://images.unsplash.com/photo-1601758123927-7a7cf9d3c8b6?auto=format&fit=crop&w=800&q=60',
-    desc: 'Construcción de paisajes y estrategia.'
-  },
-  {
-    id: 'AC001',
-    cat: 'Accesorios',
-    title: 'Controlador Inalámbrico Xbox',
-    price: 59990,
-    img: 'https://images.unsplash.com/photo-1585079544961-0fec2b0a9e74?auto=format&fit=crop&w=800&q=60',
-    desc: 'Compatible con Xbox y PC.'
-  },
-  {
-    id: 'AC002',
-    cat: 'Accesorios',
-    title: 'Auriculares HyperX Cloud II',
-    price: 79990,
-    img: 'https://images.unsplash.com/photo-1599058917217-95fefddf64d7?auto=format&fit=crop&w=800&q=60',
-    desc: 'Sonido envolvente y micrófono desmontable.'
-  },
-  {
-    id: 'CO001',
-    cat: 'Consolas',
-    title: 'PlayStation 5',
-    price: 549990,
-    img: 'https://images.unsplash.com/photo-1606813902835-5c6d8d3a4c2f?auto=format&fit=crop&w=800&q=60',
-    desc: 'Consola de última generación.'
-  },
-  {
-    id: 'CG001',
-    cat: 'Computadores Gamers',
-    title: 'PC Gamer ASUS ROG Strix',
-    price: 1299990,
-    img: 'https://images.unsplash.com/photo-1611078480013-3b8e0f2f7d2a?auto=format&fit=crop&w=800&q=60',
-    desc: 'Rendimiento para gamers exigentes.'
-  },
-  {
-    id: 'SG001',
-    cat: 'Sillas Gamers',
-    title: 'Secretlab Titan',
-    price: 349990,
-    img: 'https://images.unsplash.com/photo-1605902711622-cfb43c44367b?auto=format&fit=crop&w=800&q=60',
-    desc: 'Soporte lumbar y ergonomía.'
-  },
-  {
-    id: 'MS001',
-    cat: 'Mouse',
-    title: 'Logitech G502 HERO',
-    price: 49990,
-    img: 'https://images.unsplash.com/photo-1580657011775-bf1e7a4c6c6f?auto=format&fit=crop&w=800&q=60',
-    desc: 'Sensor de alta precisión.'
-  },
-  {
-    id: 'MP001',
-    cat: 'Mousepad',
-    title: 'Razer Goliathus Extended',
-    price: 29990,
-    img: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=60',
-    desc: 'Mousepad amplio con RGB.'
-  },
-  {
-    id: 'PP001',
-    cat: 'Poleras Personalizadas',
-    title: "Polera 'Level-Up'",
-    price: 14990,
-    img: 'https://images.unsplash.com/photo-1520975698511-1d1ecb6b8f6f?auto=format&fit=crop&w=800&q=60',
-    desc: 'Polera personalizable con gamer tag.'
-  }
+  { id:'JM001', cat:'Juegos de Mesa', title:'Catan', price:29990, origin:'Devir (Chile)',
+    img:'https://images.unsplash.com/photo-1580234745536-2ee2b5a3c17a?q=80&w=800&auto=format&fit=crop',
+    desc:'Juego de estrategia para 3-4 jugadores.' },
+  { id:'JM002', cat:'Juegos de Mesa', title:'Carcassonne', price:19990, origin:'Z-Man / Asmodee',
+    img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop',
+    desc:'Construye ciudades y caminos con tus losetas.' },
+  { id:'JM003', cat:'Juegos de Mesa', title:'Dixit', price:24990, origin:'Libellud',
+    img:'https://images.unsplash.com/photo-1601493701043-00a3d8f7a4e2?q=80&w=800&auto=format&fit=crop',
+    desc:'Creatividad y deducción con cartas ilustradas.' },
+  { id:'CO002', cat:'Consolas', title:'Xbox Series X', price:529990, origin:'Microsoft',
+    img:'https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=800&auto=format&fit=crop',
+    desc:'Compatible con Xbox y PC.' },
+  { id:'AC002', cat:'Accesorios', title:'Auriculares HyperX Cloud II', price:79990, origin:'HP / HyperX',
+    img:'https://images.unsplash.com/photo-1518449007433-8f1b0bcd8b59?q=80&w=800&auto=format&fit=crop',
+    desc:'Sonido envolvente y micrófono desmontable.' },
+  { id:'CO001', cat:'Consolas', title:'PlayStation 5', price:549990, origin:'Sony',
+    img:'https://images.unsplash.com/photo-1606813902835-5c6d8d3a4c2f?q=80&w=800&auto=format&fit=crop',
+    desc:'Consola de última generación.' },
+  { id:'CG001', cat:'Computadores Gamers', title:'PC Gamer ASUS ROG Strix', price:1299990, origin:'ASUS',
+    img:'https://images.unsplash.com/photo-1611078480013-3b8e0f2f7d2a?q=80&w=800&auto=format&fit=crop',
+    desc:'Rendimiento para gamers exigentes.' },
+  { id:'SG001', cat:'Sillas Gamers', title:'Secretlab Titan', price:299990, origin:'Secretlab',
+    img:'https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=800&auto=format&fit=crop',
+    desc:'Ergonómica para largas sesiones.' },
+  { id:'PO001', cat:'Poleras', title:'Polera Gamer (Personalizable)', price:14990, origin:'Textil local',
+    img:'https://images.unsplash.com/photo-1520975698511-1d1ecb6b8f6f?q=80&w=800&auto=format&fit=crop',
+    desc:'Polera personalizable con gamer tag.' }
 ];
 
+const productMap = new Map(PRODUCTS.map(p => [p.id, p]));
+
 // ===========================
-// ESTADO DE LA APP
+// STATE
 // ===========================
 let state = {
   cart: JSON.parse(localStorage.getItem('cart') || '[]'),
   users: JSON.parse(localStorage.getItem('users') || '[]'),
   currentUser: JSON.parse(localStorage.getItem('currentUser') || 'null'),
-  reviews: JSON.parse(localStorage.getItem('reviews') || '[]')
+  reviews: JSON.parse(localStorage.getItem('reviews') || '[]'),
+  currentList: null
 };
+const CLP_PER_POINT = 50;
+const REFERRAL_BONUS = 100;
+
+function appliedKey(){ return 'appliedPoints:'+(state.currentUser?.email || 'guest'); }
+if (state.appliedPoints == null) {
+  state.appliedPoints = parseInt(localStorage.getItem(appliedKey()) || '0', 10) || 0;
+}
 
 // ===========================
-// FUNCIONES UTILITARIAS
+// HELPERS
 // ===========================
-const money = n => '$' + n.toLocaleString('es-CL') + ' CLP';
+const money = n => '$' + Math.round(n).toLocaleString('es-CL') + ' CLP';
 const el = id => document.getElementById(id);
-
-function generateCode() {
-  return 'LU' + Math.random().toString(36).substring(2, 8).toUpperCase();
+function isDuocEmail(email){ return /@duoc\.cl\s*$/i.test(email || ''); }
+function esc(s){ return (s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+function userHasPurchasedProduct(user, pid){
+  const orders = user?.orders || [];
+  return orders.some(o => (o.items||[]).some(it => it.id===pid));
 }
-
-function saveUsers() {
-  localStorage.setItem('users', JSON.stringify(state.users));
-  localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
-}
-
-function calcLevel(points) {
+function calcLevel(points){
   if (points >= 200) return 'Maestro';
   if (points >= 100) return 'Experto';
   if (points >= 40) return 'Avanzado';
   if (points >= 10) return 'Intermedio';
   return 'Novato';
 }
+function computeTotals(){
+  const subtotal = state.cart.reduce((s,i)=>{
+    const p = productMap.get(i.id); return s + (p ? p.price * i.qty : 0);
+  },0);
+  const isDuoc = state.currentUser && isDuocEmail(state.currentUser.email);
+  const duocDiscount = isDuoc ? Math.round(subtotal * 0.20) : 0;
+  const availablePoints = state.currentUser ? (state.currentUser.points || 0) : 0;
+  const applied = Math.max(0, Math.min(state.appliedPoints || 0, availablePoints));
+  const maxRedeemableCLP = Math.max(0, subtotal - duocDiscount);
+  const pointsDiscount = Math.min(applied * CLP_PER_POINT, maxRedeemableCLP);
+  const total = Math.max(0, subtotal - duocDiscount - pointsDiscount);
+  return { subtotal, duocDiscount, pointsDiscount, total, applied, availablePoints, isDuoc };
+}
+function paintTotals(prefix=''){
+  const t = computeTotals();
+  const get = s=>document.getElementById(s+prefix);
+  const sub=get('cart-subtotal'), duocL=get('line-duoc'), duoc=get('cart-duoc'), ptsL=get('line-points'), pts=get('cart-points-discount'), tot=get('cart-total'), disp=get('points-available'), inp=get('apply-points');
+  if (sub) sub.textContent = money(t.subtotal);
+  if (duocL) duocL.hidden = !(t.duocDiscount>0);
+  if (duoc) duoc.textContent = money(t.duocDiscount);
+  if (ptsL) ptsL.hidden = !(t.pointsDiscount>0);
+  if (pts)  pts.textContent = money(t.pointsDiscount);
+  if (tot)  tot.textContent = money(t.total);
+  if (disp) disp.textContent = t.availablePoints;
+  if (inp)  inp.value = t.applied || 0;
+}
 
 // ===========================
-// INICIALIZACIÓN
+// INIT
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
-  populateCategories();
-  renderProducts(PRODUCTS);
+  if (el('filter-category')) populateCategories();
+  if (el('product-grid')) {
+    state.currentList = PRODUCTS;
+    renderProducts(state.currentList);
+  }
   updateCartUI();
-  renderReviews();
-  updateProfileUI();
-
-  el('points').textContent = state.currentUser ? (state.currentUser.points || 0) : 0;
-  el('level').textContent = calcLevel(state.currentUser ? (state.currentUser.points || 0) : 0);
+  if (el('reviews-list')) renderLatestReviews();
+  if (el('points')) el('points').textContent = state.currentUser ? (state.currentUser.points || 0) : 0;
+  if (el('level')) el('level').textContent = calcLevel(state.currentUser ? (state.currentUser.points || 0) : 0);
+  if (el('blog-teasers')) renderBlogTeasers();
+  if (location.hash.startsWith('#p=')) {
+    const pid = location.hash.split('=')[1]; if (pid) openModal(pid);
+  }
+  if (location.pathname.endsWith('/profile.html')) initProfilePage();
+  if (location.pathname.endsWith('/blog.html')) initBlogPage();
 });
 
 // ===========================
-// CATEGORÍAS
+// CATEGORIES
 // ===========================
-function populateCategories() {
+function populateCategories(){
   const cats = Array.from(new Set(PRODUCTS.map(p => p.cat)));
   const sel = el('filter-category');
-
-  cats.forEach(c => {
-    const o = document.createElement('option');
-    o.value = c;
-    o.textContent = c;
-    sel.appendChild(o);
+  cats.forEach(c=>{
+    const o=document.createElement('option'); o.value=c; o.textContent=c; sel.appendChild(o);
   });
 }
 
 // ===========================
-// RENDER PRODUCTOS
+// RENDER PRODUCTS
 // ===========================
-function renderProducts(list) {
-  const grid = el('product-grid');
+function getAvgRating(pid){
+  const rs = state.reviews.filter(r=>r.productId===pid);
+  if (rs.length===0) return 0;
+  return rs.reduce((s,r)=>s+r.stars,0)/rs.length;
+}
+
+function renderProducts(list){
+  const grid = el('product-grid'); if (!grid) return;
   grid.innerHTML = '';
+  if (list.length===0){ grid.innerHTML = '<div class="muted">No se encontraron productos</div>'; return; }
 
-  if (list.length === 0) {
-    grid.innerHTML = '<div class="muted">No se encontraron productos</div>';
-    return;
-  }
-
-  list.forEach(p => {
+  list.forEach(p=>{
+    const avg = getAvgRating(p.id);
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="${p.img}" alt="${p.title}">
+      <img src="${p.img}" alt="${esc(p.title)}" loading="lazy" decoding="async" width="320" height="200">
       <div class="meta">
         <div>
-          <strong>${p.title}</strong>
-          <div class="muted small">${p.cat}</div>
+          <strong>${esc(p.title)}</strong>
+          <div class="muted small">${esc(p.cat)}</div>
+          <div class="muted small">Origen: ${esc(p.origin || '—')}</div>
+          <div class="stars small">${'★'.repeat(Math.round(avg))}${'☆'.repeat(5-Math.round(avg))} <span class="muted">(${avg.toFixed(1)})</span></div>
         </div>
         <div class="price">${money(p.price)}</div>
       </div>
-      <p class="muted small">${p.desc}</p>
-      <div style="margin-top:auto; display:flex; gap:8px">
+      <div class="actions">
         <button class="btn" onclick="openModal('${p.id}')">Ver</button>
         <button class="btn primary" onclick="addToCart('${p.id}')">Agregar</button>
       </div>
@@ -181,405 +167,421 @@ function renderProducts(list) {
 }
 
 // ===========================
-// BÚSQUEDA Y FILTRO
+// SEARCH/FILTERS
 // ===========================
-el('searchBtn').addEventListener('click', () => {
-  const query = el('search').value.trim().toLowerCase();
-  const cat = el('filter-category').value;
-
-  let filtered = PRODUCTS.filter(p => (p.title + ' ' + p.desc).toLowerCase().includes(query));
-  if (cat) filtered = filtered.filter(p => p.cat === cat);
-
-  renderProducts(filtered);
+if (el('searchBtn')) el('searchBtn').addEventListener('click', applySearch);
+if (el('filter-category')) el('filter-category').addEventListener('change', applySearch);
+if (el('sort')) el('sort').addEventListener('change', doSort);
+if (el('btn-apply-price')) el('btn-apply-price').addEventListener('click', applySearch);
+if (el('btn-clear-price')) el('btn-clear-price').addEventListener('click', ()=>{
+  if (el('min-price')) el('min-price').value='';
+  if (el('max-price')) el('max-price').value='';
+  if (el('filter-min-rating')) el('filter-min-rating').value='0';
+  applySearch();
 });
 
-el('filter-category').addEventListener('change', () => el('searchBtn').click());
+function applySearch(){
+  const q = (el('search')?.value||'').trim().toLowerCase();
+  const cat = el('filter-category')?.value || '';
+  const minP = parseInt(el('min-price')?.value||'0',10) || 0;
+  const maxP = parseInt(el('max-price')?.value||'0',10) || 0;
+  const minR = parseInt(el('filter-min-rating')?.value||'0',10) || 0;
 
-el('sort').addEventListener('change', e => {
-  const value = e.target.value;
-  let arr = [...PRODUCTS];
-
-  if (value === 'price-asc') arr.sort((a, b) => a.price - b.price);
-  if (value === 'price-desc') arr.sort((a, b) => b.price - a.price);
-  if (value === 'name-asc') arr.sort((a, b) => a.title.localeCompare(b.title));
-
-  renderProducts(arr);
-});
-
-// ===========================
-// CARRITO
-// ===========================
-function updateCartUI() {
-  el('cart-count').textContent = state.cart.reduce((s, i) => s + i.qty, 0);
-
-  const cartItems = el('cart-items');
-  cartItems.innerHTML = '';
-
-  if (state.cart.length === 0) {
-    cartItems.innerHTML = '<div class="muted">Tu carrito está vacío</div>';
-    el('cart-total').textContent = money(0);
-    return;
-  }
-
-  state.cart.forEach(it => {
-    const p = PRODUCTS.find(x => x.id === it.id);
-    const div = document.createElement('div');
-    div.className = 'cart-row';
-    div.innerHTML = `
-      <div style="display:flex;gap:8px;align-items:center">
-        <img src="${p.img}" style="width:56px;height:40px;object-fit:cover;border-radius:6px">
-        <div>
-          <strong>${p.title}</strong>
-          <div class="muted small">${money(p.price)}</div>
-        </div>
-      </div>
-      <div style="text-align:right">
-        <input type="number" min="1" value="${it.qty}" style="width:60px" onchange="changeQty('${it.id}', this.value)">
-        <div style="margin-top:6px">
-          <button class="btn" onclick="removeFromCart('${it.id}')">Eliminar</button>
-        </div>
-      </div>
-    `;
-    cartItems.appendChild(div);
+  state.currentList = PRODUCTS.filter(p=>{
+    const hit = (p.title+' '+p.desc).toLowerCase().includes(q);
+    const okCat = !cat || p.cat===cat;
+    const okMin = !minP || p.price>=minP;
+    const okMax = !maxP || p.price<=maxP;
+    const avg = getAvgRating(p.id);
+    const okRat = avg >= minR;
+    return hit && okCat && okMin && okMax && okRat;
   });
+  renderProducts(state.currentList);
+}
 
-  const total = state.cart.reduce((s, i) => s + (PRODUCTS.find(x => x.id === i.id).price * i.qty), 0);
-  el('cart-total').textContent = money(total);
+function doSort(e){
+  const v = e.target.value;
+  const arr = [...(state.currentList||PRODUCTS)];
+  if (v==='price-asc') arr.sort((a,b)=>a.price-b.price);
+  if (v==='price-desc') arr.sort((a,b)=>b.price-a.price);
+  if (v==='name-asc') arr.sort((a,b)=>a.title.localeCompare(b.title));
+  renderProducts(arr);
+}
 
+// ===========================
+// CART
+// ===========================
+function updateCartUI(){
+  if (el('cart-count')) el('cart-count').textContent = state.cart.reduce((s,i)=>s+i.qty,0);
+  const list = el('cart-items'); if (list){
+    list.innerHTML='';
+    if (state.cart.length===0){ list.innerHTML='<div class="muted">Tu carrito está vacío</div>'; paintTotals(''); }
+    state.cart.forEach(it=>{
+      const p = productMap.get(it.id);
+      const div = document.createElement('div'); div.className='cart-row';
+      div.innerHTML = `
+        <div style="display:flex;gap:8px;align-items:center">
+          <img src="${p.img}" style="width:56px;height:40px;object-fit:cover;border-radius:6px" loading="lazy">
+          <div><strong>${esc(p.title)}</strong><div class="muted small">${money(p.price)}</div></div>
+        </div>
+        <div style="text-align:right">
+          <input type="number" min="1" value="${it.qty}" style="width:60px" onchange="changeQty('${it.id}', this.value)">
+          <div style="margin-top:6px"><button class="btn" onclick="removeFromCart('${it.id}')">Eliminar</button></div>
+        </div>`;
+      list.appendChild(div);
+    });
+  }
+  paintTotals('');
   localStorage.setItem('cart', JSON.stringify(state.cart));
 }
 
-function addToCart(id) {
-  const found = state.cart.find(i => i.id === id);
-  if (found) found.qty++;
-  else state.cart.push({ id, qty: 1 });
-
-  if (state.currentUser) {
-    state.currentUser.points = (state.currentUser.points || 0) + 5;
+function addToCart(id){
+  const found = state.cart.find(i=>i.id===id);
+  if (found) found.qty += 1; else state.cart.push({id, qty:1});
+  if (state.currentUser){
+    state.currentUser.points = (state.currentUser.points||0) + 5;
     saveUsers();
-    updateProfileUI();
+    updateProfileBadge();
   }
-
   updateCartUI();
   alert('Producto añadido al carrito');
 }
+function removeFromCart(id){ state.cart = state.cart.filter(i=>i.id!==id); updateCartUI(); }
+function changeQty(id, qty){ const it=state.cart.find(i=>i.id===id); if(!it) return; it.qty=Math.max(1,parseInt(qty)); updateCartUI(); }
 
-function removeFromCart(id) {
-  state.cart = state.cart.filter(i => i.id !== id);
-  updateCartUI();
-}
-
-function changeQty(id, qty) {
-  const it = state.cart.find(i => i.id === id);
-  if (!it) return;
-  it.qty = Math.max(1, parseInt(qty));
-  updateCartUI();
-}
-// ===========================
-// SLIDE LATERAL CARRITO
-// ===========================
-const cartSlide = el('cart-slide');
-const cartList = el('cart-list');
-const cartTotalSlide = el('cart-total-slide');
-const btnCartHeader = el('btn-cart');
-const btnCloseSlide = el('cart-close-slide');
-
-// Abrir slide al hacer click en carrito
-btnCartHeader.addEventListener('click', () => {
-  renderCartSlide();
-  cartSlide.classList.add('show');
-  cartSlide.setAttribute('aria-hidden', 'false');
-});
-
-// Cerrar slide
-btnCloseSlide.addEventListener('click', () => {
-  cartSlide.classList.remove('show');
-  cartSlide.setAttribute('aria-hidden', 'true');
-});
-
-// Renderizar productos del carrito
-function renderCartSlide() {
-  cartList.innerHTML = '';
-  if(state.cart.length === 0) {
-    cartList.innerHTML = `<div class="muted">Tu carrito está vacío</div>`;
-    cartTotalSlide.textContent = money(0);
-    return;
-  }
-
-  state.cart.forEach(it => {
-    const p = PRODUCTS.find(x => x.id === it.id);
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <img src="${p.img}" alt="${p.title}">
+// Slide cart
+const cartSlide = el('cart-slide'), cartList = el('cart-list'), cartTotalSlide = el('cart-total-slide');
+if (el('btn-cart')) el('btn-cart').addEventListener('click', ()=>{ cartSlide.classList.add('show'); cartSlide.setAttribute('aria-hidden','false'); renderCartSlide(); });
+if (el('cart-close-slide')) el('cart-close-slide').addEventListener('click', ()=>{ cartSlide.classList.remove('show'); cartSlide.setAttribute('aria-hidden','true'); });
+function renderCartSlide(){
+  if (!cartList) return;
+  cartList.innerHTML='';
+  if(state.cart.length===0){ cartList.innerHTML='<div class="muted">Tu carrito está vacío</div>'; paintTotals('-slide'); return; }
+  state.cart.forEach(it=>{
+    const p=productMap.get(it.id);
+    const div=document.createElement('div'); div.className='cart-item';
+    div.innerHTML=`
+      <img src="${p.img}" alt="${esc(p.title)}" loading="lazy">
       <div class="cart-item-info">
-        <strong>${p.title}</strong>
-        <div>Cantidad: 
-          <input type="number" min="1" value="${it.qty}" style="width:50px" onchange="changeQtySlide('${it.id}', this.value)">
-        </div>
-        <div>Subtotal: ${money(p.price * it.qty)}</div>
+        <strong>${esc(p.title)}</strong>
+        <div>Cantidad: <input type="number" min="1" value="${it.qty}" style="width:50px" onchange="changeQtySlide('${it.id}', this.value)"></div>
+        <div>Subtotal: ${money(p.price*it.qty)}</div>
       </div>
-      <button class="btn" onclick="removeFromCartSlide('${it.id}')">Eliminar</button>
-    `;
+      <button class="btn" onclick="removeFromCartSlide('${it.id}')">Eliminar</button>`;
     cartList.appendChild(div);
   });
-
-  const total = state.cart.reduce((s, i) => s + (PRODUCTS.find(x => x.id === i.id).price * i.qty), 0);
-  cartTotalSlide.textContent = money(total);
+  if (cartTotalSlide){ const t=computeTotals(); cartTotalSlide.textContent=money(t.total); }
+  paintTotals('-slide');
 }
+function removeFromCartSlide(id){ removeFromCart(id); renderCartSlide(); }
+function changeQtySlide(id, qty){ changeQty(id, qty); renderCartSlide(); }
 
-// Funciones para slide lateral
-function removeFromCartSlide(id) {
-  removeFromCart(id); // reutiliza tu función existente
-  renderCartSlide();
-}
+// Points apply/clear
+if (el('btn-apply-points')) el('btn-apply-points').addEventListener('click', ()=>{
+  const n = parseInt(el('apply-points')?.value||'0',10)||0;
+  state.appliedPoints = Math.max(0,n);
+  localStorage.setItem(appliedKey(), state.appliedPoints);
+  updateCartUI(); renderCartSlide();
+});
+if (el('btn-clear-points')) el('btn-clear-points').addEventListener('click', ()=>{
+  state.appliedPoints = 0; localStorage.setItem(appliedKey(),0);
+  if (el('apply-points')) el('apply-points').value=0; updateCartUI(); renderCartSlide();
+});
+if (el('btn-apply-points-slide')) el('btn-apply-points-slide').addEventListener('click', ()=>{
+  const n = parseInt(el('apply-points-slide')?.value||'0',10)||0;
+  state.appliedPoints = Math.max(0,n);
+  localStorage.setItem(appliedKey(), state.appliedPoints);
+  renderCartSlide(); updateCartUI();
+});
+if (el('btn-clear-points-slide')) el('btn-clear-points-slide').addEventListener('click', ()=>{
+  state.appliedPoints = 0; localStorage.setItem(appliedKey(),0);
+  if (el('apply-points-slide')) el('apply-points-slide').value=0; renderCartSlide(); updateCartUI();
+});
 
-function changeQtySlide(id, qty) {
-  changeQty(id, qty); // reutiliza tu función existente
-  renderCartSlide();
-}
-
-// ===========================
-// PERFIL
-// ===========================
-function updateProfileUI() {
-  if (state.currentUser) {
-    el('user-name').textContent = state.currentUser.name;
-    el('user-email').textContent = state.currentUser.email;
-    el('user-code').textContent = state.currentUser.code;
-    el('points').textContent = state.currentUser.points || 0;
-    el('level').textContent = calcLevel(state.currentUser.points || 0);
-  } else {
-    el('user-name').textContent = 'Invitado';
-    el('user-email').textContent = '-';
-    el('user-code').textContent = '-';
-    el('points').textContent = 0;
-    el('level').textContent = 'Novato';
+// Checkout
+function handleCheckout(){
+  if (state.cart.length===0){ alert('Tu carrito está vacío'); return; }
+  const { subtotal, duocDiscount, pointsDiscount, total, applied, availablePoints } = computeTotals();
+  if (state.currentUser && applied>0){
+    const used = Math.min(applied, Math.floor(pointsDiscount/CLP_PER_POINT), availablePoints);
+    state.currentUser.points = Math.max(0, (state.currentUser.points||0) - used);
   }
-
-  localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+  if (state.currentUser){
+    state.currentUser.points = (state.currentUser.points||0) + Math.floor(total / 1000);
+    const order = { id: 'O'+Date.now(), date: new Date().toISOString(), items: state.cart.map(c=>({id:c.id, qty:c.qty, price: productMap.get(c.id)?.price||0})), total };
+    state.currentUser.orders = state.currentUser.orders || [];
+    state.currentUser.orders.unshift(order);
+    saveUsers();
+    updateProfileBadge();
+  }
+  state.cart = []; state.appliedPoints=0; localStorage.setItem(appliedKey(),0);
+  updateCartUI(); renderCartSlide();
+  alert(
+    `¡Compra realizada!\n\n`+
+    `Subtotal: ${money(subtotal)}\n`+
+    (duocDiscount?`DUOC -20%: -${money(duocDiscount)}\n`:'')+
+    (pointsDiscount?`Canje puntos: -${money(pointsDiscount)}\n`:'')+
+    `Total pagado: ${money(total)}`
+  );
 }
+if (el('checkout')) el('checkout').addEventListener('click', handleCheckout);
+if (el('checkout-slide')) el('checkout-slide').addEventListener('click', handleCheckout);
 
 // ===========================
-// MODAL
+// MODAL PRODUCTO (+ reviews + compartir)
 // ===========================
-function openModal(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if (!p) return;
-
-  el('modal-left').innerHTML = `<img src="${p.img}" style="width:100%;border-radius:10px">`;
-  el('modal-right').innerHTML = `
-    <h3>${p.title}</h3>
-    <p class="muted">${p.cat}</p>
-    <p>${p.desc}</p>
+function openModal(id){
+  const p = productMap.get(id); if (!p) return;
+  const avg = getAvgRating(id);
+  if (el('modal-left')) el('modal-left').innerHTML = `<img src="${p.img}" style="width:100%;border-radius:10px" alt="${esc(p.title)}" loading="lazy">`;
+  if (el('modal-right')) el('modal-right').innerHTML = `
+    <h3>${esc(p.title)}</h3>
+    <p class="muted">${esc(p.cat)}</p>
+    <p>${esc(p.desc)}</p>
+    <p class="muted small">Origen: ${esc(p.origin||'—')}</p>
     <p class="price">${money(p.price)}</p>
-    <button class="btn primary" onclick="addToCart('${p.id}')">Agregar al carrito</button>
-  `;
+    <div class="stars">Rating: ${'★'.repeat(Math.round(avg))}${'☆'.repeat(5-Math.round(avg))} <span class="muted small">(${avg.toFixed(1)})</span></div>
+    <div class="actions" style="margin-top:8px">
+      <button class="btn primary" onclick="addToCart('${p.id}')">Agregar al carrito</button>
+      <button class="btn" onclick="shareProduct('${p.id}')">Compartir</button>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.08)">
+    <h4>Reseñas</h4>
+    <div id="product-reviews"></div>
+    <form id="product-review-form" class="review-form" data-pid="${p.id}" style="margin-top:10px">
+      <label>Calificación
+        <select id="pr-stars">
+          <option value="5">★★★★★ (5)</option>
+          <option value="4">★★★★☆ (4)</option>
+          <option value="3">★★★☆☆ (3)</option>
+          <option value="2">★★☆☆☆ (2)</option>
+          <option value="1">★☆☆☆☆ (1)</option>
+        </select>
+      </label>
+      <label>Comentario
+        <textarea id="pr-text" rows="3" placeholder="Escribe tu opinión..."></textarea>
+      </label>
+      <button class="btn primary" type="submit">Publicar</button>
+    </form>`;
 
-  el('modal').classList.add('show');
-  el('modal').setAttribute('aria-hidden', 'false');
+  renderProductReviews(id);
+  el('modal').classList.add('show'); el('modal').setAttribute('aria-hidden','false');
+  location.hash = '#p='+id;
 }
+if (el('modal-close')) el('modal-close').addEventListener('click', closeModal);
+function closeModal(){ el('modal').classList.remove('show'); el('modal').setAttribute('aria-hidden','true'); history.replaceState(null,'',location.pathname+location.search); }
 
-el('modal-close').addEventListener('click', () => {
-  el('modal').classList.remove('show');
-  el('modal').setAttribute('aria-hidden', 'true');
-});
-
-// ===========================
-// RESEÑAS
-// ===========================
-function renderReviews() {
-  const list = el('reviews-list');
-  list.innerHTML = '';
-
-  state.reviews.forEach(r => {
-    const div = document.createElement('div');
-    div.className = 'review-card';
-    div.innerHTML = `
-      <strong>${r.name}</strong> - <span class="muted small">${r.score}/5</span>
-      <p>${r.text}</p>
-    `;
-    list.appendChild(div);
-  });
-}
-
-el('review-form').addEventListener('submit', e => {
-  e.preventDefault();
-
-  if (!state.currentUser) {
-    alert('Debes iniciar sesión para dejar una reseña');
-    return;
+function shareProduct(id){
+  const p = productMap.get(id);
+  const url = location.origin + location.pathname + '#p=' + id;
+  if (navigator.share){
+    navigator.share({ title: p.title, text: 'Revisa este producto en Level-Up Gamer', url });
+  } else {
+    navigator.clipboard?.writeText(url);
+    alert('Link copiado: '+url);
   }
+}
 
-  const score = parseInt(el('review-score').value);
-  const text = el('review-text').value.trim();
-
-  if (!text) return;
-
-  state.reviews.push({
-    name: state.currentUser.name,
-    score,
-    text
-  });
-
-  localStorage.setItem('reviews', JSON.stringify(state.reviews));
-  renderReviews();
-  el('review-text').value = '';
-  alert('Gracias por tu reseña');
-});
-
-// --- CARRUSEL ---
-const track = document.querySelector('.carousel-track');
-const nextBtn = document.getElementById('next');
-const prevBtn = document.getElementById('prev');
-let currentIndex = 0;
-
-// Lista de imágenes del carrusel (pueden ser GIFs también)
-const carouselImages = [
-  'https://tenor.com/sRz2Hjr6Aoj.gif',
-  'https://images.unsplash.com/photo-1618354691373-d49e3b8d3e58?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1605902711622-cfb43c4437f3?auto=format&fit=crop&w=1200&q=80'
-];
-
-// Renderizamos las imágenes en el carrusel
-function renderCarouselImages() {
-  track.innerHTML = '';
-  carouselImages.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = `Slide ${i+1}`;
-    if(i === 0) img.classList.add('active');
-    track.appendChild(img);
+function renderProductReviews(pid){
+  const wrap = el('product-reviews'); if (!wrap) return;
+  const list = state.reviews.filter(r=>r.productId===pid);
+  wrap.innerHTML = list.length? '' : '<div class="muted small">Aún no hay reseñas</div>';
+  list.forEach(r=>{
+    const div=document.createElement('div'); div.className='review';
+    div.innerHTML = `
+      <div class="stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div>${esc(r.text)}</div>
+      <div class="muted small">por ${esc(r.userName)} ${r.verified?'<span class="chip">Comprador verificado</span>':''}</div>`;
+    wrap.appendChild(div);
   });
 }
 
-renderCarouselImages();
-const images = Array.from(track.children);
+document.addEventListener('submit', (e)=>{
+  if (e.target && e.target.id === 'product-review-form'){
+    e.preventDefault();
+    if (!state.currentUser){ alert('Debes iniciar sesión para reseñar.'); return; }
+    const pid = e.target.dataset.pid;
+    const stars = parseInt(el('pr-stars').value,10);
+    const text = el('pr-text').value.trim();
+    if (!text){ alert('Escribe un comentario.'); return; }
+    const verified = userHasPurchasedProduct(state.currentUser, pid);
+    state.reviews.push({ productId: pid, stars, text, userEmail: state.currentUser.email, userName: state.currentUser.name, verified, ts: Date.now() });
+    localStorage.setItem('reviews', JSON.stringify(state.reviews));
+    el('pr-text').value='';
+    renderProductReviews(pid);
+    renderProducts(state.currentList||PRODUCTS);
+  }
+});
 
-// Actualiza la posición del carrusel
-function updateCarousel() {
-  const width = images[0].clientWidth;
-  track.style.transform = `translateX(-${currentIndex * width}px)`;
+function renderLatestReviews(){
+  const cont = el('reviews-list'); if (!cont) return;
+  const list = [...state.reviews].sort((a,b)=>b.ts-a.ts).slice(0,6);
+  cont.innerHTML = list.length? '' : '<div class="muted">Aún no hay reseñas</div>';
+  list.forEach(r=>{
+    const p = productMap.get(r.productId);
+    const div=document.createElement('div'); div.className='review';
+    div.innerHTML = `
+      <div class="stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div>${esc(r.text)}</div>
+      <div class="muted small">en ${esc(p?.title||'Producto')} • por ${esc(r.userName)} ${r.verified?'<span class="chip">Comprador verificado</span>':''}</div>`;
+    cont.appendChild(div);
+  });
 }
 
-// Botones de navegación
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateCarousel();
-  resetAutoplay();
+// ===========================
+// AUTH
+// ===========================
+if (el('btn-login')) el('btn-login').addEventListener('click', ()=>{
+  document.getElementById('login-modal').classList.add('show');
+});
+['login-cancel','login-x'].forEach(id=>{
+  if (el(id)) el(id).addEventListener('click', ()=> document.getElementById('login-modal').classList.remove('show'));
+});
+if (el('go-register')) el('go-register').addEventListener('click', (e)=>{
+  e.preventDefault(); document.getElementById('login-modal').classList.remove('show'); document.getElementById('register-modal').classList.add('show');
+});
+['register-cancel','register-x','back-login'].forEach(id=>{
+  if (el(id)) el(id).addEventListener('click', (e)=>{
+    if (id==='back-login') e.preventDefault();
+    document.getElementById('register-modal').classList.toggle('show');
+    document.getElementById('login-modal').classList.toggle('show');
+  });
 });
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateCarousel();
-  resetAutoplay();
-});
-
-// Ajusta el carrusel al cambiar tamaño de pantalla
-window.addEventListener('resize', updateCarousel);
-
-// Autoplay automático
-let autoplay = setInterval(() => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateCarousel();
-}, 5000);
-
-// Reinicia autoplay al usar botones
-function resetAutoplay() {
-  clearInterval(autoplay);
-  autoplay = setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateCarousel();
-  }, 5000);
-}
-
-// Inicializamos posición
-updateCarousel();
-/* ===========================
-   LOGIN + REGISTRO (MODALES)
-=========================== */
-
-// Referencias a los modales y botones
-const loginModal      = document.getElementById('login-modal');
-const registerModal   = document.getElementById('register-modal');
-
-const btnLoginHeader  = document.getElementById('btn-login');
-const loginX          = document.getElementById('login-x');
-const loginCancel     = document.getElementById('login-cancel');
-const goRegister      = document.getElementById('go-register');
-
-const registerX       = document.getElementById('register-x');
-const registerCancel  = document.getElementById('register-cancel');
-const backLogin       = document.getElementById('back-login');
-
-function openLogin()    { loginModal.classList.add('show');  loginModal.setAttribute('aria-hidden','false'); }
-function closeLogin()   { loginModal.classList.remove('show'); loginModal.setAttribute('aria-hidden','true'); }
-function openRegister() { registerModal.classList.add('show'); registerModal.setAttribute('aria-hidden','false'); }
-function closeRegister(){ registerModal.classList.remove('show'); registerModal.setAttribute('aria-hidden','true'); }
-
-// Abrir login desde el header
-btnLoginHeader.addEventListener('click', openLogin);
-
-// Cambios de modal
-goRegister.addEventListener('click', (e)=>{ e.preventDefault(); closeLogin(); openRegister(); });
-backLogin.addEventListener('click', (e)=>{ e.preventDefault(); closeRegister(); openLogin(); });
-
-// Cerrar siempre (✕ y Cancelar)
-loginX.addEventListener('click', closeLogin);
-loginCancel.addEventListener('click', closeLogin);
-registerX.addEventListener('click', closeRegister);
-registerCancel.addEventListener('click', closeRegister);
-
-// Cerrar haciendo click fuera de la tarjeta
-[loginModal, registerModal].forEach(modal => {
-  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('show'); });
-});
-
-// ====== SUBMIT: LOGIN ======
-document.getElementById('login-form').addEventListener('submit', (e)=>{
+if (el('login-form')) el('login-form').addEventListener('submit', (e)=>{
   e.preventDefault();
   const email = document.getElementById('login-email').value.trim();
   const pass  = document.getElementById('login-pass').value;
-
-  const found = state.users.find(u => u.email === email && u.pass === pass);
-  if (!found) { alert('Correo o contraseña incorrectos.'); return; }
-
-  state.currentUser = found;
-  saveUsers();
-  updateProfileUI();
-  closeLogin();
-  alert('Sesión iniciada correctamente.');
+  const found = state.users.find(u=>u.email===email && u.pass===pass);
+  if (!found){ alert('Correo o contraseña incorrectos.'); return; }
+  state.currentUser = found; state.currentUser.isDuoc = isDuocEmail(state.currentUser.email);
+  saveUsers(); updateProfileBadge(); updateCartUI(); renderCartSlide(); document.getElementById('login-modal').classList.remove('show'); alert('Sesión iniciada correctamente.');
 });
 
-// ====== SUBMIT: REGISTRO ======
-document.getElementById('register-form-modal').addEventListener('submit', (e)=>{
+if (el('register-form-modal')) el('register-form-modal').addEventListener('submit', (e)=>{
   e.preventDefault();
   const name = document.getElementById('regm-name').value.trim();
   const email= document.getElementById('regm-email').value.trim();
-  const age  = parseInt(document.getElementById('regm-age').value, 10);
+  const age  = parseInt(document.getElementById('regm-age').value,10);
   const pass = document.getElementById('regm-pass').value;
   const ref  = document.getElementById('regm-ref').value.trim();
-
-  if (!name || !email || !age || !pass) { alert('Completa todos los campos.'); return; }
-  if (age < 18) { alert('Debes ser mayor de 18 años.'); return; }
-  if (state.users.some(u => u.email === email)) { alert('Ese correo ya está registrado.'); return; }
-
-  const user = { name, email, pass, age, code: generateCode(), points: 0, ref };
-  state.users.push(user);
-  state.currentUser = user;      // auto-login tras registro
-  saveUsers();
-  updateProfileUI();
-  closeRegister();
-  alert('Cuenta creada. Sesión iniciada.');
+  if (!name || !email || !age || !pass){ alert('Completa todos los campos.'); return; }
+  if (age < 18){ alert('Debes ser mayor de 18 años.'); return; }
+  if (state.users.some(u=>u.email===email)){ alert('Ese correo ya está registrado.'); return; }
+  const user = { name, email, pass, age, code: generateCode(), points: 0, ref, orders: [] };
+  const referidor = state.users.find(u=>u.code===ref);
+  if (referidor && referidor.email!==email){ referidor.points = (referidor.points||0) + REFERRAL_BONUS; }
+  state.users.push(user); state.currentUser = user; state.currentUser.isDuoc = isDuocEmail(state.currentUser.email);
+  saveUsers(); updateProfileBadge(); updateCartUI(); renderCartSlide(); document.getElementById('register-modal').classList.remove('show'); alert('Cuenta creada. Sesión iniciada.');
 });
 
-// (Opcional) Cerrar sesión desde tu botón en la sección Perfil
-const btnLogout = document.getElementById('btn-logout');
-if (btnLogout) {
-  btnLogout.addEventListener('click', ()=>{
-    state.currentUser = null;
+if (el('btn-logout')) el('btn-logout').addEventListener('click', ()=>{
+  state.currentUser = null; saveUsers(); updateProfileBadge(); alert('Sesión cerrada.');
+});
+function updateProfileBadge(){
+  if (el('points')) el('points').textContent = state.currentUser ? (state.currentUser.points || 0) : 0;
+  if (el('level')) el('level').textContent = calcLevel(state.currentUser ? (state.currentUser.points || 0) : 0);
+}
+function generateCode(){ return 'LU'+Math.random().toString(36).substring(2,8).toUpperCase(); }
+function saveUsers(){ localStorage.setItem('users', JSON.stringify(state.users)); localStorage.setItem('currentUser', JSON.stringify(state.currentUser)); }
+
+// ===========================
+// PROFILE PAGE LOGIC
+// ===========================
+function initProfilePage(){
+  if (!state.currentUser){ alert('Debes iniciar sesión.'); location.href = './index.html#home'; return; }
+  el('pf-name').value = state.currentUser.name || '';
+  el('pf-email').value = state.currentUser.email || '';
+  el('pf-age').value = state.currentUser.age || 18;
+  const cats = Array.from(new Set(PRODUCTS.map(p=>p.cat)));
+  const pf = el('pf-prefs'); cats.forEach(c=>{ const o=document.createElement('option'); o.value=c; o.textContent=c; pf.appendChild(o); });
+  (state.currentUser.prefs||[]).forEach(v=>{ [...pf.options].forEach(opt=>{ if (opt.value===v) opt.selected=true; }); });
+  renderOrders();
+  const rc = el('rec-category'); [''].concat(cats).forEach(c=>{ const o=document.createElement('option'); o.value=c; o.textContent=c||'Todas'; rc.appendChild(o); });
+  renderRecommendations();
+  el('profile-form').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    state.currentUser.name = el('pf-name').value.trim();
+    const newEmail = el('pf-email').value.trim();
+    state.currentUser.email = newEmail;
+    state.currentUser.isDuoc = isDuocEmail(newEmail);
+    state.currentUser.age = parseInt(el('pf-age').value,10)||state.currentUser.age;
+    const sel = [...el('pf-prefs').selectedOptions].map(o=>o.value);
+    state.currentUser.prefs = sel;
     saveUsers();
-    updateProfileUI();
-    alert('Sesión cerrada.');
+    alert('Perfil actualizado');
+  });
+  el('rec-apply').addEventListener('click', renderRecommendations);
+  el('rec-clear').addEventListener('click', ()=>{
+    el('rec-category').value=''; el('rec-min').value=''; el('rec-max').value=''; renderRecommendations();
+  });
+}
+
+function renderOrders(){
+  const wrap = el('orders'); wrap.innerHTML='';
+  const orders = state.currentUser?.orders||[];
+  if (!orders.length){ wrap.innerHTML='<div class="muted">Aún no tienes pedidos</div>'; return; }
+  orders.forEach(o=>{
+    const div=document.createElement('div'); div.className='order';
+    const items = (o.items||[]).map(it=>{
+      const p=productMap.get(it.id); return `${esc(p?.title||it.id)} × ${it.qty}`;
+    }).join(', ');
+    div.innerHTML = `<div><strong>#${o.id}</strong> — ${new Date(o.date).toLocaleString('es-CL')}</div>
+                     <div class="muted small">${items}</div>
+                     <div><strong>${money(o.total)}</strong></div>`;
+    wrap.appendChild(div);
+  });
+}
+
+function renderRecommendations(){
+  const bought = new Set((state.currentUser?.orders||[]).flatMap(o=>(o.items||[]).map(it=>it.id)));
+  const cat = el('rec-category').value;
+  const min = parseInt(el('rec-min').value||'0',10)||0;
+  const max = parseInt(el('rec-max').value||'0',10)||0;
+  const prefs = state.currentUser?.prefs || [];
+  let list = PRODUCTS.filter(p=>!bought.has(p.id));
+  if (cat) list = list.filter(p=>p.cat===cat);
+  if (min) list = list.filter(p=>p.price>=min);
+  if (max) list = list.filter(p=>p.price<=max);
+  if (prefs.length) list = list.filter(p=>prefs.includes(p.cat));
+  const grid = el('rec-grid'); grid.innerHTML='';
+  if (!list.length){ grid.innerHTML='<div class="muted">No hay recomendaciones con los filtros actuales</div>'; return; }
+  list.forEach(p=>{
+    const card=document.createElement('div'); card.className='card';
+    card.innerHTML=`
+      <img src="${p.img}" alt="${esc(p.title)}" loading="lazy">
+      <div class="meta">
+        <div><strong>${esc(p.title)}</strong><div class="muted small">${esc(p.cat)}</div></div>
+        <div class="price">${money(p.price)}</div>
+      </div>
+      <div class="muted small">Origen: ${esc(p.origin||'—')}</div>
+      <div class="actions"><button class="btn" onclick="location.href='./index.html#p=${p.id}'">Ver</button><button class="btn primary" onclick="addToCart('${p.id}')">Agregar</button></div>`;
+    grid.appendChild(card);
+  });
+}
+
+// ===========================
+// BLOG
+// ===========================
+const BLOG = [
+  { id:'b1', title:'Cómo elegir tu primer juego de mesa', excerpt:'Mecánicas básicas y recomendaciones para empezar.' },
+  { id:'b2', title:'Armar un PC Gamer balanceado 2025', excerpt:'CPU, GPU y cuellos de botella: guía práctica.' },
+  { id:'b3', title:'Sillas gamers: salud y ergonomía', excerpt:'Consejos para jugar cómodo por horas.' }
+];
+function renderBlogTeasers(){
+  const wrap = el('blog-teasers'); if (!wrap) return;
+  wrap.innerHTML = '';
+  BLOG.slice(0,3).forEach(p=>{
+    const d=document.createElement('div'); d.className='card';
+    d.innerHTML = `<div class="meta"><div><strong>${esc(p.title)}</strong><div class="muted">${esc(p.excerpt)}</div></div></div>`;
+    wrap.appendChild(d);
+  });
+}
+function initBlogPage(){
+  const list = el('blog-list'); if (!list) return;
+  BLOG.forEach(p=>{
+    const d=document.createElement('div'); d.className='card';
+    d.innerHTML = `<div class="meta"><div><strong>${esc(p.title)}</strong><div class="muted">${esc(p.excerpt)}</div></div></div>`;
+    list.appendChild(d);
   });
 }
